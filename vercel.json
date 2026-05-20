@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/chat.ts": {
+      "memory": 1024,
+      "maxDuration": 30
+    },
+    "api/health.ts": {
+      "maxDuration": 10
+    },
+    "api/ping.ts": {
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}
